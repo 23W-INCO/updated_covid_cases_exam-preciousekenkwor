@@ -14,15 +14,7 @@ interface CovidData {
   countryterritoryCode: string;
   popData2019: number;
   continentExp: string;
-  Cumulative_number_for_14_days_of_COVID_19_cases_per_100000: string;
-}
-
-d3.json("http://localhost:8000/get-file").then((json: any) => {
-  const jsonData: CovidData[] = json;
-  const aggregatedData = Array.from(
-    d3.group(jsonData, (d) => d.countriesAndTerritories)
-  );
-
+  Cumulative_number_for_14_days_of_COVID_19_cases_per_100000: stri
   // Format the date
   const parseDate = d3.timeParse("%d/%m/%Y");
   jsonData.forEach((d) => {
