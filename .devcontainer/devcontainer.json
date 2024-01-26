@@ -3,14 +3,18 @@
   "name": "UI Codespace",
   "dockerFile": "Dockerfile",
   
+
+
+  
+
   "forwardPorts": [8000],
-  "postCreateCommand": "npm run installations",
+  "postCreateCommand": "npm i && pip install -r requirements.txt",
   "remoteUser": "codespace",
   "workspaceMount": "source=/workspace,target=/workspace,type=volume",
   "containerEnv": {
     "PIPENV_VENV_IN_PROJECT": "1"
   },
-  "runArgs": ["-v", "/workspace:/workspace", "--workdir", "/workspace", "--entrypoint", "pnpm", "ui", "codespace-start"],
+  "runArgs": ["-v", "/workspace:/workspace", "--workdir", "/workspace", "--entrypoint", "pnpm", "ui", "codespace-start"]
   
  
 }
