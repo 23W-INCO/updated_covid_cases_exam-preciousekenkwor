@@ -1,22 +1,24 @@
-# .devcontainer/Dockerfile
-FROM python:3.10.10
+# Use the official Python base image
+FROM python:3.10-slim
 
-WORKDIR /workspace
+FROM alpine:3.18
 
-# Install FastAPI dependencies
+ENV NODE_VERSION 18.19.0
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the requirements file to the working directory
+COPY requirements.txt .
+
+# Install the Python dependencies
 RUN pip install -r requirements.txt
 
-# Install Node.js and npm
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
-RUN apt-get install -y nodejs
+# Copy the application code to the working directory
+COPY . .
 
+# Expose the port on which the application will run
+EXPOSE 8080
 
-# Install project dependencies
-COPY package.json .
-COPY package-lock.json .
-RUN npm install
-
-# Expose ports for FastAPI and Vite
-EXPOSE 8000 5173
-
-# CMD ["npm", "run", "start"]
+# Run the FastAPI application using uvicorn server
+CMD ["uvicorn", "fastapi:app", "--host", "0.0.0.0", "--port", "8080"]
