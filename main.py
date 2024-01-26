@@ -9,7 +9,7 @@ app:FastAPI = FastAPI()
 
 origins = [
     
-    "http://localhost:5173",
+    "http://localhost:5173", "https://supreme-umbrella-qwqgg47j5xjh945v-5173.app.github.dev", "*"
 ]
 app.add_middleware(
     CORSMiddleware,

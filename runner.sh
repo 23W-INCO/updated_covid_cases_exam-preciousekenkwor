@@ -4,12 +4,12 @@
 pip install --no-cache-dir --upgrade -r requirements.txt
 
 # Install Node.js dependencies
-npm install -g pnpm
 
-pnpm i
+
+npm i
 
 # Build the TypeScript code
-pnpm run build
+npm run build
 
 # Start both servers concurrently
 concurrently "uvicorn main:app --reload --host 0.0.0.0 --port 8000" "vite"

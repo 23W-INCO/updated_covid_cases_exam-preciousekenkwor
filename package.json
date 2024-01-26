@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "backend": "uvicorn main:app --reload --host 0.0.0.0 --port 8000",
+    "installations":"pip install -r requirements.txt && npm i",
     "start": "concurrently \"npm run backend\" \"npm run dev\"",
     "start:virtual": "pipenv shell && npm start",
     "build": "tsc && vite build",

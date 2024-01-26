@@ -17,7 +17,7 @@ interface CovidData {
   Cumulative_number_for_14_days_of_COVID_19_cases_per_100000: string;
 }
 
-d3.json("http://localhost:8000/get-file").then((json: any) => {
+d3.json("https://supreme-umbrella-qwqgg47j5xjh945v-8000.app.github.dev/get-file").then((json: any) => {
   const jsonData: CovidData[] = json;
   const aggregatedData = Array.from(
     d3.group(jsonData, (d) => d.countriesAndTerritories)
