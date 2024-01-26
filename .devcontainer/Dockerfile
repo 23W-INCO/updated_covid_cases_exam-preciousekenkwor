@@ -6,7 +6,7 @@ WORKDIR /app
 # Install necessary dependencies
 RUN apk add --no-cache gcc musl-dev libffi-dev openssl-dev git
 
-COPY requirements.txt .
+
 
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -15,9 +15,8 @@ FROM node:19-bullseye AS node_builder
 
 WORKDIR /app
 
-COPY package.json .
 
-RUN npm install
+
 
 # Stage 3: Final image
 FROM python:3.10-alpine
@@ -31,6 +30,7 @@ COPY --from=python_builder /usr/local/lib/python3.10/site-packages /usr/local/li
 COPY --from=node_builder /app/node_modules /app/node_modules
 
 # Copy the entire project
+RUN npm run installations
 COPY . .
 
 # Expose the port the app runs on
