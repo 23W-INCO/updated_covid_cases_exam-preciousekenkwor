@@ -10,6 +10,7 @@
     "start": "concurrently \"npm run backend\" \"npm run dev\"",
     "start:virtual": "pipenv shell && npm start",
     "build": "tsc && vite build",
+    "codespace-start": "npm run backend",
     "preview": "vite preview"
   },
   "devDependencies": {
