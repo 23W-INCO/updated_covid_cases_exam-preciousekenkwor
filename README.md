@@ -61,7 +61,8 @@ Global health organizations, policymakers, and researchers monitoring the COVID-
 ### **Visualization Strategy**
 
 The frontend provides a slider for date selection, allowing users to explore data over time. Radio buttons offer different perspectives, and the play/pause button enables animated visualization. A bar chart complements the heatmap for total cases.
-
+## **Sample Data **
+[! image sample](src/assets/covide.png)
 ### **Additional Features**
 
 - Box select: Allows users to drag a box for a focused view.
