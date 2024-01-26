@@ -12,13 +12,14 @@ RUN apk add --no-cache gcc musl-dev libffi-dev openssl-dev git
 
 COPY requirements.txt .
 
+RUN pip install -r requirements.txt
+
 # Install the Python dependencies
 
 COPY package.json .
 COPY package-lock.json .
-# Install Flask and Gunicorn
-RUN npm run installations
 
+RUN npm i
 # Copy the entire project to the working directory
 COPY . .
 
