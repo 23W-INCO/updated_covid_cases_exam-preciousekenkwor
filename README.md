@@ -46,7 +46,7 @@ This repository includes Python FastAPI backend and TypeScript/D3.js frontend co
 2. Install the required dependencies using `npm install`.
 3. Run the backend using `uvicorn main:app --reload --host 0.0.0.0 --port 8000`.
 4. Run the frontend using `npm run dev`.
-5. Access the visualization on `http://localhost:3000` in your browser.
+5. Access the visualization on `http://localhost:5173` in your browser.
 
 ### **Key User Group**
 
@@ -62,7 +62,7 @@ Global health organizations, policymakers, and researchers monitoring the COVID-
 
 The frontend provides a slider for date selection, allowing users to explore data over time. Radio buttons offer different perspectives, and the play/pause button enables animated visualization. A bar chart complements the heatmap for total cases.
 ## **Sample Data **
-[! image sample](src/assets/covide.png)
+[! image sample](./src/assets/covide.png)
 ### **Additional Features**
 
 - Box select: Allows users to drag a box for a focused view.
