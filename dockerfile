@@ -1,9 +1,7 @@
 # 
 FROM python:3.11.4
 FROM node:20-slim AS base
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
+
 # 
 WORKDIR /code
 
@@ -13,20 +11,17 @@ COPY ./requirements.txt /code/requirements.txt
 # 
 
 # Copy package.json and pnpm-lock.yaml
-COPY pnpm-lock.yaml package.json ./
+COPY package-lock.json package.json ./
 # Install app dependencies using PNPM
-RUN npm install -g pnpm
-# Install dependencies
-RUN pnpm i 
-# Copy the application code 
+RUN npm i
+RUN pip install -r requirements.txt
 COPY . .
 # Build the TypeScript code
-RUN pnpm run build
 # Expose the app
-EXPOSE 3000
+EXPOSE 8000
 # Start the application
 
 
 # 
-CMD ["npm", "start"]
+CMD ["npm", "run", "backend"]
 
