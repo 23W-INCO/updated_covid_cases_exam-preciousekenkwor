@@ -12,8 +12,8 @@ RUN apt-get install -y nodejs
 
 
 # Install project dependencies
-COPY package.json .
-COPY package-lock.yaml .
+COPY ../package.json .
+COPY ../package-lock.yaml .
 RUN npm install
 
 # Expose ports for FastAPI and Vite
